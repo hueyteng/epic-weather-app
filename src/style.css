@@ -1,0 +1,126 @@
+body {
+  background-image: url(../src/images/mountains.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: sans-serif;
+  color: #213c51;
+  padding: 5px 20px;
+  margin: 10px 20px;
+}
+
+h1,
+h2 {
+  font-family: "Yusei Magic", sans-serif;
+  font-size: 55px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+h2 {
+  margin-bottom: 1px;
+  margin-top: 1px;
+}
+
+h3.feels-like {
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 1px;
+}
+
+.container {
+  max-width: 500;
+}
+
+.row {
+  margin: 20px 30px;
+}
+
+.card {
+  display: block;
+  margin: 20px auto;
+  width: 37%;
+  min-width: 400px;
+  border-radius: 5%;
+  background: rgba(255, 255, 255, 0.8);
+  border: 3px solid #3c605d;
+  padding: 20px auto;
+}
+
+.mb-3 {
+  margin-left: 22px;
+  margin-top: 20px;
+}
+
+.units {
+  position: relative;
+  top: -58px;
+  left: 260px;
+  font-size: 18px;
+}
+
+.units a {
+  text-decoration: none;
+}
+
+.btn.btn-info {
+  content: "\f002";
+  border: #2c5471 1px;
+  background-color: #2c5471;
+  color: #ffffff;
+  font-family: FontAwesome;
+  padding: 5px 10px;
+}
+
+.btn.btn-secondary {
+  border: #d8c3db;
+  background-color: #d8c3db;
+  color: #ffffff;
+  padding: 5px 10px;
+}
+
+.fa-search {
+  font-size: 15px;
+}
+
+.fa-location-arrow {
+  font-size: 15px;
+}
+
+.current-weather-icon {
+  font-size: 100px;
+  text-align: center;
+  margin: 0 auto;
+  color: #616e7a;
+}
+
+.week-forecast {
+  font-size: 15px;
+  text-align: center;
+  line-height: 30px;
+}
+
+hr {
+  display: block;
+  margin: 10px auto;
+  max-width: 90%;
+}
+
+div.col {
+  border-right: 1px solid #000000;
+  margin: 1px;
+  text-align: center;
+  font-size: 15px;
+  padding: 0;
+}
+
+.col.day-1 {
+  border-left: 1px solid #000000;
+}
+
+.footer {
+  font-size: 12px;
+  text-align: center;
+}
