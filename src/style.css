@@ -57,7 +57,7 @@ h3.feels-like {
 .units {
   position: relative;
   top: -58px;
-  left: 260px;
+  left: 270px;
   font-size: 18px;
 }
 
@@ -89,11 +89,11 @@ h3.feels-like {
   font-size: 15px;
 }
 
-.current-weather-icon {
-  font-size: 100px;
-  text-align: center;
+.weather-icon {
+  display: block;
   margin: 0 auto;
-  color: #616e7a;
+  object-fit: cover;
+  height: 150px;
 }
 
 .week-forecast {

@@ -1,5 +1,4 @@
 // CURRENT DATE UPDATE //
-
 function displayDateTime(date) {
   let currentDateTime = new Date();
   let days = [
@@ -36,27 +35,6 @@ function displaySearchCity(event) {
   cityDisplay.innerHTML = `${searchInput.value}`.toUpperCase();
 }
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#current-temperature");
-  temperatureElement.innerHTML = 91;
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#current-temperature");
-  temperatureElement.innerHTML = 33;
-}
-
-let submitForm = document.querySelector("#search-form");
-submitForm.addEventListener("submit", displaySearchCity);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
-
 function search(city) {
   let apiKey = "86c2f666f31a39c50f5fcfdde17550ce";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -64,11 +42,22 @@ function search(city) {
 }
 
 function showWeatherConditions(response) {
-  document.querySelector("#current-city").innerHTML = response.data.name.toUpperCase();
-  document.querySelector("#current-temperature").innerHTML = Math.round(response.data.main.temp);
-  document.querySelector("#wind").innerHTML = `<strong>Wind:</strong> ${Math.round(response.data.wind.speed)} mph`;
-  document.querySelector("#humidity").innerHTML = `<strong>Humidity:</strong> ${Math.round(response.data.main.humidity)}%`;
-  document.querySelector("#current-conditions").innerHTML = response.data.weather[0].main;
+  let temperatureElement = document.querySelector("#current-temperature");
+  let cityElement = document.querySelector("#current-city");
+  let conditionElement = document.querySelector("#current-conditions");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let feelslikeElement = document.querySelector("#feels-like");
+  let iconElement = document.querySelector("#weather-icon");
+
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  cityElement.innerHTML = response.data.name.toUpperCase();
+  conditionElement.innerHTML = response.data.weather[0].main;
+  humidityElement.innerHTML = `<strong>Humidity:</strong> ${Math.round(response.data.main.humidity)}%`;
+  windElement.innerHTML = `<strong>Wind:</strong> ${Math.round(response.data.wind.speed)} mph`;
+  feelslikeElement.innerHTML = Math.round(response.data.main.temp.feels_like);
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function getTemp(event) {
@@ -95,5 +84,33 @@ searchButton.addEventListener("submit", getTemp);
 
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", retrievePosition);
+
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let temperatureElement = document.querySelector("#current-temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#current-temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+}
+let celsiusTemp = null;
+
+let submitForm = document.querySelector("#search-form");
+submitForm.addEventListener("submit", displaySearchCity);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
 
 search("Kuala Lumpur");
