@@ -89,13 +89,6 @@ h3.feels-like {
   font-size: 15px;
 }
 
-.weather-icon {
-  display: block;
-  margin: 0 auto;
-  object-fit: cover;
-  height: 150px;
-}
-
 .week-forecast {
   font-size: 15px;
   text-align: center;
@@ -118,6 +111,13 @@ div.col {
 
 .col.day-1 {
   border-left: 1px solid #000000;
+}
+
+.current-weather-icon {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 300px;
 }
 
 .footer {

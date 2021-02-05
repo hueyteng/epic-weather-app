@@ -47,7 +47,6 @@ function showWeatherConditions(response) {
   let conditionElement = document.querySelector("#current-conditions");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  let feelslikeElement = document.querySelector("#feels-like");
   let iconElement = document.querySelector("#weather-icon");
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -55,8 +54,7 @@ function showWeatherConditions(response) {
   conditionElement.innerHTML = response.data.weather[0].main;
   humidityElement.innerHTML = `<strong>Humidity:</strong> ${Math.round(response.data.main.humidity)}%`;
   windElement.innerHTML = `<strong>Wind:</strong> ${Math.round(response.data.wind.speed)} mph`;
-  feelslikeElement.innerHTML = Math.round(response.data.main.temp.feels_like);
-  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("src", `src/images/${response.data.weather[0].icon}.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
