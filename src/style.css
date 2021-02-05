@@ -115,9 +115,8 @@ div.col {
 
 .current-weather-icon {
   display: block;
-  margin: 0 auto;
+  margin: none;
   text-align: center;
-  width: 300px;
 }
 
 .footer {
