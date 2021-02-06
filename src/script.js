@@ -49,6 +49,8 @@ function showWeatherConditions(response) {
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#weather-icon");
 
+  celsiusTemp = response.data.main.temp;
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name.toUpperCase();
   conditionElement.innerHTML = response.data.weather[0].main;
@@ -83,7 +85,6 @@ searchButton.addEventListener("submit", getTemp);
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", retrievePosition);
 
-
 function convertToFahrenheit(event) {
   event.preventDefault();
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
@@ -100,6 +101,7 @@ function convertToCelsius(event) {
   let temperatureElement = document.querySelector("#current-temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
 }
+
 let celsiusTemp = null;
 
 let submitForm = document.querySelector("#search-form");
