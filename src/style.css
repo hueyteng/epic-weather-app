@@ -23,8 +23,8 @@ h2 {
   margin-top: 1px;
 }
 
-h3.feels-like {
-  font-size: 15px;
+h3.temperature-like {
+  font-size: 18px;
   text-align: center;
   margin-bottom: 20px;
   margin-top: 1px;
@@ -58,6 +58,10 @@ h3.feels-like {
   display: block;
   margin: none;
   text-align: center;
+}
+
+.current-icon {
+  width: 180px;
 }
 
 .units {
