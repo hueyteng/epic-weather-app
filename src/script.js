@@ -53,7 +53,7 @@ function showWeatherConditions(response) {
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name.toUpperCase();
-  conditionElement.innerHTML = response.data.weather[0].main;
+  conditionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = `<strong>Humidity:</strong> ${Math.round(response.data.main.humidity)}%`;
   windElement.innerHTML = `<strong>Wind:</strong> ${Math.round(response.data.wind.speed)} mph`;
   iconElement.setAttribute("src", `src/images/${response.data.weather[0].icon}.png`);
@@ -98,6 +98,7 @@ function convertToCelsius(event) {
   event.preventDefault();
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
+
   let temperatureElement = document.querySelector("#current-temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
 }

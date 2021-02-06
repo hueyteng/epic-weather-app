@@ -124,6 +124,10 @@ div.col {
   border-left: 1px solid #000000;
 }
 
+div.row {
+  text-transform: capitalize;
+}
+
 .footer {
   font-size: 12px;
   text-align: center;
