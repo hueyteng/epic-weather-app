@@ -48,8 +48,10 @@ function showWeatherConditions(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#weather-icon");
+  let feelsLikeElement = document.querySelector("#feels-like");
 
   celsiusTemp = response.data.main.temp;
+  celsisusFeelsLike = response.data.main.feels_like;
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name.toUpperCase();
@@ -58,6 +60,7 @@ function showWeatherConditions(response) {
   windElement.innerHTML = `<strong>Wind:</strong> ${Math.round(response.data.wind.speed)} mph`;
   iconElement.setAttribute("src", `src/images/${response.data.weather[0].icon}.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  feelsLikeElement.innerHTML = `Feels like: <strong>${Math.round(celsisusFeelsLike)}°</strong>`;
 }
 
 function getTemp(event) {
@@ -90,8 +93,12 @@ function convertToFahrenheit(event) {
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
+
   let temperatureElement = document.querySelector("#current-temperature");
   temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+
+  let feelsLikeElement = document.querySelector("#feels-like");
+  feelsLikeElement.innerHTML = `Feels like: <strong>${Math.round(celsisusFeelsLike * 9 / 5 + 32)}°</strong>`;
 }
 
 function convertToCelsius(event) {
@@ -101,6 +108,10 @@ function convertToCelsius(event) {
 
   let temperatureElement = document.querySelector("#current-temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
+
+  let feelsLikeElement = document.querySelector("#feels-like");
+  feelsLikeElement.innerHTML = `Feels like: <strong>${Math.round(celsisusFeelsLike)}°</strong>`;
+  
 }
 
 let celsiusTemp = null;
