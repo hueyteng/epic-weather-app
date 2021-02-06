@@ -54,11 +54,22 @@ h3.feels-like {
   margin-top: 20px;
 }
 
+.current-weather-icon {
+  display: block;
+  margin: none;
+  text-align: center;
+}
+
 .units {
   position: relative;
   top: -58px;
-  left: 270px;
-  font-size: 18px;
+  left: 280px;
+  font-size: 19px;
+}
+
+.units .active {
+  color: #213c51;
+  cursor: default;
 }
 
 .units a {
@@ -111,12 +122,6 @@ div.col {
 
 .col.day-1 {
   border-left: 1px solid #000000;
-}
-
-.current-weather-icon {
-  display: block;
-  margin: none;
-  text-align: center;
 }
 
 .footer {
