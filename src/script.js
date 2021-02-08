@@ -36,6 +36,11 @@ function displaySearchCity(event) {
   let cityDisplay = document.querySelector("#current-city");
 
   cityDisplay.innerHTML = `${searchInput.value}`.toUpperCase();
+
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+
+  searchOnLoad(city);
 }
 
 function displayForecast(response) {

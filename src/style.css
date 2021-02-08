@@ -123,10 +123,9 @@ hr {
 
 div.hourly-forecast {
   border-right: 1px solid #000000;
-  margin: 1px;
   text-align: center;
   font-size: 15px;
-  padding: 0;
+  line-height: 15px;
 }
 
 .col.day-1 {
