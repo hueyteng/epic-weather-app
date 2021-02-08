@@ -106,8 +106,8 @@ h3.temperature-like {
 
 .hourly-forecast {
   font-size: 15px;
+  font-weight: 400;
   text-align: center;
-  line-height: 30px;
 }
 
 hr {
@@ -116,20 +116,24 @@ hr {
   max-width: 90%;
 }
 
-.img-thumbnail {
-  border: none;
-  background: none;
-}
-
-div.hourly-forecast {
-  border-right: 1px solid #000000;
-  text-align: center;
+h4 {
   font-size: 15px;
-  line-height: 15px;
+  text-align: center;
 }
 
-.col.day-1 {
-  border-left: 1px solid #000000;
+img {
+  display: block;
+  margin: 0 auto;
+  position: center;
+  width: 60px;
+}
+
+.temp-forecast {
+  font-size: 13px;
+  font-weight: 400;
+  text-align: center;
+  height: auto;
+  white-space: nowrap;
 }
 
 div.row {

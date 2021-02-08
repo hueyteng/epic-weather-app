@@ -52,14 +52,15 @@ function displayForecast(response) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
       <div class="col-2">
+      <h4 class="hour">
         ${formatHours(forecast.dt * 1000)}
-      <img src="src/images/${forecast.weather[0].icon}.png" class="img-thumbnail" alt="${forecast.weather[0].description}">
-      </div>
+      </h4>
+      <img src="src/images/${forecast.weather[0].icon}.png" 
+      class = "forecast-image" />
         <div class="temp-forecast">
           <strong>
           ${Math.round(forecast.main.temp_max)}°
-          </strong> 
-          ${Math.round(forecast.main.temp_min)}°
+          </strong> ${Math.round(forecast.main.temp_min)}°
         </div>
         </div>`;
 }
@@ -123,6 +124,7 @@ searchButton.addEventListener("submit", getTemp);
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", retrievePosition);
 
+// CELSIUS AND FAHRENHEIT CONVERSION //
 function convertToFahrenheit(event) {
   event.preventDefault();
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
