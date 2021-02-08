@@ -104,7 +104,7 @@ h3.temperature-like {
   font-size: 15px;
 }
 
-.week-forecast {
+.hourly-forecast {
   font-size: 15px;
   text-align: center;
   line-height: 30px;
@@ -116,7 +116,12 @@ hr {
   max-width: 90%;
 }
 
-div.col {
+.img-thumbnail {
+  border: none;
+  background: none;
+}
+
+div.hourly-forecast {
   border-right: 1px solid #000000;
   margin: 1px;
   text-align: center;
