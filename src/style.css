@@ -2,7 +2,7 @@ body {
   background-image: url(../src/images/mountains.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   font-family: sans-serif;
   color: #213c51;
   padding: 5px 20px;
