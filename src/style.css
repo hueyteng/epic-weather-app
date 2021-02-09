@@ -50,8 +50,28 @@ h3.temperature-like {
 }
 
 .mb-3 {
+  font-family: sans-serif;
+  font-size: 16px;
   margin-left: 22px;
   margin-top: 20px;
+  padding: 10px;
+}
+
+.btn.btn-info {
+  content: "\f002";
+  border: #2c5471 1px;
+  background-color: #2c5471;
+  color: #ffffff;
+  font-family: FontAwesome;
+  padding: 4px 9px;
+}
+
+.btn.btn-secondary {
+  border: #d8c3db;
+  background-color: #d8c3db;
+  color: #ffffff;
+  padding: 4px 9px;
+  margin-left: 1px;
 }
 
 .current-weather-icon {
@@ -79,22 +99,6 @@ h3.temperature-like {
 
 .units a {
   text-decoration: none;
-}
-
-.btn.btn-info {
-  content: "\f002";
-  border: #2c5471 1px;
-  background-color: #2c5471;
-  color: #ffffff;
-  font-family: FontAwesome;
-  padding: 5px 10px;
-}
-
-.btn.btn-secondary {
-  border: #d8c3db;
-  background-color: #d8c3db;
-  color: #ffffff;
-  padding: 5px 10px;
 }
 
 .fa-search {
