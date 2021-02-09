@@ -2,7 +2,7 @@ body {
   background-image: url(../src/images/mountains.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
   font-family: sans-serif;
   color: #213c51;
   padding: 5px 20px;
@@ -71,7 +71,6 @@ h3.temperature-like {
   background-color: #d8c3db;
   color: #ffffff;
   padding: 4px 9px;
-  margin-left: 1px;
 }
 
 .current-weather-icon {
