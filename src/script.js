@@ -58,9 +58,11 @@ function displayForecast(response) {
       <img src="src/images/${forecast.weather[0].icon}.png" 
       class = "forecast-image" />
         <div class="temp-forecast">
-          <strong>
-          ${Math.round(forecast.main.temp_max)}°
-          </strong> ${Math.round(forecast.main.temp_min)}°
+        <strong><span class="forecast-max">
+          ${Math.round(forecast.main.temp_max)}</span>°
+          </strong>
+          <span class="forecast-min">
+           ${Math.round(forecast.main.temp_min)}</span>°
         </div>
         </div>`;
 }
@@ -136,6 +138,21 @@ function convertToFahrenheit(event) {
 
   let feelsLikeElement = document.querySelector("#feels-like");
   feelsLikeElement.innerHTML = `Feels like: <strong>${Math.round(celsisusFeelsLike * 9 / 5 + 32)}°</strong>`;
+
+  let forecastMax = document.querySelectorAll(".forecast-max");
+  forecastMax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+
+    let forecastMin = document.querySelectorAll(".forecast-min");
+    forecastMin.forEach(function (item) {
+      let currentTemp = item.innerHTML;
+      item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+
+  celsiusLink.addEventListener("click", convertToCelsius);
+  fahrenheitLink.removeEventListener("click", convertToFahrenheit);
 }
 
 function convertToCelsius(event) {
@@ -149,6 +166,20 @@ function convertToCelsius(event) {
   let feelsLikeElement = document.querySelector("#feels-like");
   feelsLikeElement.innerHTML = `Feels like: <strong>${Math.round(celsisusFeelsLike)}°</strong>`;
   
+  let forecastMax = document.querySelectorAll(".forecast-max");
+  forecastMax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp - 32) * 5 / 9);
+  });
+
+    let forecastMin = document.querySelectorAll(".forecast-min");
+    forecastMin.forEach(function (item) {
+      let currentTemp = item.innerHTML;
+      item.innerHTML = Math.round((currentTemp - 32) * 5 / 9);
+  });
+
+  celsiusLink.removeEventListener("click", convertToCelsius);
+  fahrenheitLink.addEventListener("click", convertToFahrenheit);
 }
 
 let celsiusTemp = null;
