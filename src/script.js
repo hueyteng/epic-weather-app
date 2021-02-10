@@ -29,6 +29,7 @@ function formatHours(timestamp) {
   return `${hour}:${minutes}`;
 }
 
+
 // LOCATION AND TEMPERATURE UPDATE //
 function displaySearchCity(event) {
   event.preventDefault();
@@ -111,8 +112,15 @@ function findLocation(position) {
   let apiKey = "86c2f666f31a39c50f5fcfdde17550ce";
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showWeatherConditions);
+
+  let currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(currentWeatherUrl).then(showWeatherConditions);
+
+  forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(forecastUrl).then(displayForecast);
+
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 
 function retrievePosition(event) {
@@ -125,6 +133,7 @@ searchButton.addEventListener("submit", getTemp);
 
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", retrievePosition);
+
 
 // CELSIUS AND FAHRENHEIT CONVERSION //
 function convertToFahrenheit(event) {
@@ -183,6 +192,9 @@ function convertToCelsius(event) {
 }
 
 let celsiusTemp = null;
+let fahrenheitTemp = null;
+let forecastMax = null;
+let forecastMin = null;
 
 let submitForm = document.querySelector("#search-form");
 submitForm.addEventListener("submit", displaySearchCity);
