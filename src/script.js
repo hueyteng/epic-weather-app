@@ -106,6 +106,12 @@ function getTemp(event) {
   event.preventDefault();
   let city = document.querySelector("#search-city").value;
   search(city);
+
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+
+  celsiusLink.addEventListener("click", convertToCelsius);
+  fahrenheitLink.removeEventListener("click", convertToFahrenheit);
 }
 
 function findLocation(position) {
@@ -121,6 +127,9 @@ function findLocation(position) {
 
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
+
+  celsiusLink.addEventListener("click", convertToCelsius);
+  fahrenheitLink.removeEventListener("click", convertToFahrenheit);
 }
 
 function retrievePosition(event) {
