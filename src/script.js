@@ -110,8 +110,8 @@ function getTemp(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
 
-  celsiusLink.addEventListener("click", convertToCelsius);
-  fahrenheitLink.removeEventListener("click", convertToFahrenheit);
+  celsiusLink.removeEventListener("click", convertToCelsius);
+  fahrenheitLink.addEventListener("click", convertToFahrenheit);
 }
 
 function findLocation(position) {
@@ -128,8 +128,8 @@ function findLocation(position) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
 
-  celsiusLink.addEventListener("click", convertToCelsius);
-  fahrenheitLink.removeEventListener("click", convertToFahrenheit);
+  celsiusLink.removeEventListener("click", convertToCelsius);
+  fahrenheitLink.addEventListener("click", convertToFahrenheit);
 }
 
 function retrievePosition(event) {
@@ -201,9 +201,6 @@ function convertToCelsius(event) {
 }
 
 let celsiusTemp = null;
-let fahrenheitTemp = null;
-let forecastMax = null;
-let forecastMin = null;
 
 let submitForm = document.querySelector("#search-form");
 submitForm.addEventListener("submit", displaySearchCity);
